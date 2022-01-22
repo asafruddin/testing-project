@@ -15,13 +15,11 @@ class Client {
 
   Dio _getDio() {
     final options = BaseOptions(
-        baseUrl: config.apiBaseUrl!,
-        connectTimeout: 20000,
-        receiveTimeout: 30000,
-        receiveDataWhenStatusError: true,
-        headers: <String, dynamic>{
-          'isToken': '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'
-        });
+      baseUrl: config.apiBaseUrl!,
+      connectTimeout: 20000,
+      receiveTimeout: 30000,
+      receiveDataWhenStatusError: true,
+    );
 
     final dio = Dio(options);
 
@@ -45,7 +43,7 @@ class Client {
         if (options.headers.containsKey('isToken')) {
           options.headers.remove('isToken');
           options.headers.addAll(<String, dynamic>{
-            'Authorization': 'Bearer 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',
+            // 'Authorization': 'Bearer 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',
           });
         }
 

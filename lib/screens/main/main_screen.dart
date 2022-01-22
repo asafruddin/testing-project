@@ -303,16 +303,20 @@ class UserList extends StatelessWidget {
             pagingController: usersPagingController,
             shrinkWrapFirstPageIndicators: true,
             builderDelegate: PagedChildBuilderDelegate<DataUserEntity>(
+                noItemsFoundIndicatorBuilder: (context) =>
+                    const Text('No Item Found'),
+                firstPageProgressIndicatorBuilder: (context) =>
+                    const CircularProgressIndicator(),
                 itemBuilder: (context, item, index) {
-              return ListTile(
-                leading: ClipRRect(
-                  borderRadius: BorderRadius.circular(8),
-                  child: Image.network(item.avatarUrl ?? ""),
-                ),
-                title: Text(item.login!),
-                onTap: () {},
-              );
-            }))
+                  return ListTile(
+                    leading: ClipRRect(
+                      borderRadius: BorderRadius.circular(8),
+                      child: Image.network(item.avatarUrl ?? ""),
+                    ),
+                    title: Text(item.login!),
+                    onTap: () {},
+                  );
+                }))
       ],
     );
   }
@@ -336,6 +340,10 @@ class IssuesList extends StatelessWidget {
             pagingController: issuePagingController,
             shrinkWrapFirstPageIndicators: true,
             builderDelegate: PagedChildBuilderDelegate<DataIssuesEntity>(
+              firstPageProgressIndicatorBuilder: (context) =>
+                  const CircularProgressIndicator(),
+              noItemsFoundIndicatorBuilder: (context) =>
+                  const Text('No Item Found'),
               itemBuilder: (context, item, index) {
                 return ListTile(
                   title: Text(item.title!),
@@ -371,22 +379,26 @@ class RepositoryList extends StatelessWidget {
             pagingController: repoPagingController,
             shrinkWrapFirstPageIndicators: true,
             builderDelegate: PagedChildBuilderDelegate<DataRepositoriesEntity>(
+                noItemsFoundIndicatorBuilder: (context) =>
+                    const Text('No Item Found'),
+                firstPageProgressIndicatorBuilder: (context) =>
+                    const CircularProgressIndicator(),
                 itemBuilder: (context, item, index) {
-              return ListTile(
-                  title: Text(item.name!),
-                  trailing: Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        Text("Watcher : ${item.watchersCount.toString()}"),
-                        Text("Stars : ${item.stargazersCount.toString()}"),
-                        Text("Fork ${item.forksCount.toString()}")
-                      ]),
-                  subtitle: Text(DateFormat("dd MMMM yyyy")
-                      .format(DateTime.parse(item.createdAt!))),
-                  leading: ClipRRect(
-                      borderRadius: BorderRadius.circular(8),
-                      child: Image.network(item.owner?.avatarUrl ?? "")));
-            }))
+                  return ListTile(
+                      title: Text(item.name!),
+                      trailing: Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            Text("Watcher : ${item.watchersCount.toString()}"),
+                            Text("Stars : ${item.stargazersCount.toString()}"),
+                            Text("Fork ${item.forksCount.toString()}")
+                          ]),
+                      subtitle: Text(DateFormat("dd MMMM yyyy")
+                          .format(DateTime.parse(item.createdAt!))),
+                      leading: ClipRRect(
+                          borderRadius: BorderRadius.circular(8),
+                          child: Image.network(item.owner?.avatarUrl ?? "")));
+                }))
       ],
     );
   }
