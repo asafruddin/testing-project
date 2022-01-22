@@ -57,6 +57,22 @@ android {
             signingConfig signingConfigs.debug
         }
     }
+
+    flavorDimensions "default"
+    productFlavors { 
+        production {
+            dimension "default"
+            // manifestPlaceholders = [appName: "Erp Mobile"]
+        }
+        staging {
+            dimension "default"
+            // manifestPlaceholders = [appName: "[STG] Erp Mobile"]
+        }        
+        development {
+            dimension "default"
+            // manifestPlaceholders = [appName: "[DEV] Erp Mobile"]
+        }
+    }
 }
 
 flutter {
