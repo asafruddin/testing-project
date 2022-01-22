@@ -30,9 +30,6 @@ class DataIssuesModel extends DataIssuesEntity {
       List<LabelIssuesModel>? labels,
       String? state,
       bool? locked,
-      String? assignee,
-      List? assignees,
-      String? milestone,
       double? comments,
       String? createdAt,
       String? updatedAt,
@@ -40,10 +37,8 @@ class DataIssuesModel extends DataIssuesEntity {
       String? authorAssociation,
       String? activeLockReason,
       bool? draft,
-      String? body,
       ReactionIssuesModel? reactions,
       String? timelineUrl,
-      String? performedViaGithubApp,
       double? score)
       : super(
             url,
@@ -60,9 +55,6 @@ class DataIssuesModel extends DataIssuesEntity {
             labels,
             state,
             locked,
-            assignee,
-            assignees,
-            milestone,
             comments,
             createdAt,
             updatedAt,
@@ -70,10 +62,8 @@ class DataIssuesModel extends DataIssuesEntity {
             authorAssociation,
             activeLockReason,
             draft,
-            body,
             reactions,
             timelineUrl,
-            performedViaGithubApp,
             score);
   factory DataIssuesModel.fromJson(Map<String, dynamic> json) =>
       _$DataIssuesModelFromJson(json);

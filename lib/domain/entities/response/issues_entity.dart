@@ -33,9 +33,6 @@ class DataIssuesEntity extends Equatable {
   final List<LabelIssuesEntity>? labels;
   final String? state;
   final bool? locked;
-  final String? assignee;
-  final List<dynamic>? assignees;
-  final String? milestone;
   final double? comments;
   final String? createdAt;
   final String? updatedAt;
@@ -43,10 +40,8 @@ class DataIssuesEntity extends Equatable {
   final String? authorAssociation;
   final String? activeLockReason;
   final bool? draft;
-  final String? body;
   final ReactionIssuesEntity? reactions;
   final String? timelineUrl;
-  final String? performedViaGithubApp;
   final double? score;
 
   const DataIssuesEntity(
@@ -64,9 +59,6 @@ class DataIssuesEntity extends Equatable {
       this.labels,
       this.state,
       this.locked,
-      this.assignee,
-      this.assignees,
-      this.milestone,
       this.comments,
       this.createdAt,
       this.updatedAt,
@@ -74,10 +66,8 @@ class DataIssuesEntity extends Equatable {
       this.authorAssociation,
       this.activeLockReason,
       this.draft,
-      this.body,
       this.reactions,
       this.timelineUrl,
-      this.performedViaGithubApp,
       this.score);
 
   @override
@@ -96,9 +86,6 @@ class DataIssuesEntity extends Equatable {
         labels,
         state,
         locked,
-        assignee,
-        assignees,
-        milestone,
         comments,
         createdAt,
         updatedAt,
@@ -106,10 +93,8 @@ class DataIssuesEntity extends Equatable {
         authorAssociation,
         activeLockReason,
         draft,
-        body,
         reactions,
         timelineUrl,
-        performedViaGithubApp,
         score
       ];
 }

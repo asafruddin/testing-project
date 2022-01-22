@@ -34,9 +34,6 @@ DataIssuesModel _$DataIssuesModelFromJson(Map<String, dynamic> json) =>
           .toList(),
       json['state'] as String?,
       json['locked'] as bool?,
-      json['assignee'] as String?,
-      json['assignees'] as List<dynamic>?,
-      json['milestone'] as String?,
       (json['comments'] as num?)?.toDouble(),
       json['created_at'] as String?,
       json['updated_at'] as String?,
@@ -44,13 +41,11 @@ DataIssuesModel _$DataIssuesModelFromJson(Map<String, dynamic> json) =>
       json['author_association'] as String?,
       json['active_lock_reason'] as String?,
       json['draft'] as bool?,
-      json['body'] as String?,
       json['reactions'] == null
           ? null
           : ReactionIssuesModel.fromJson(
               json['reactions'] as Map<String, dynamic>),
       json['timeline_url'] as String?,
-      json['performed_via_github_app'] as String?,
       (json['score'] as num?)?.toDouble(),
     );
 
